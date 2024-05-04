@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System - Cập nhật công việc</title>
+</head>
+<body>
+    <h1>Cập nhật công việc</h1>
+    <form action="{{ url_for('update_task', id=task.id) }}" method="POST">
+        <label for="title">Tiêu đề:</label><br>
+        <input type="text" id="title" name="title" value="{{ task.title }}" required><br>
+        <label for="description">Mô tả:</label><br>
+        <textarea id="description" name="description" required>{{ task.description }}</textarea><br>
+        <label for="status">Trạng thái:</label><br>
+        <select id="status" name="status" required>
+            <option value="TODO" {% if task.status == 'TODO' %} selected {% endif %}>TODO</option>
+            <option value="IN PROGRESS" {% if task.status == 'IN PROGRESS' %} selected {% endif %}>IN PROGRESS</option>
+            <option value="FINISHED" {% if task.status == 'FINISHED' %} selected {% endif %}>FINISHED</option>
+        </select><br>
+        <!-- Thêm trường nhập ngày hoàn thành (nếu cần) -->
+        <button type="submit">Cập nhật công việc</button>
+    </form>
+</body>
+</html>

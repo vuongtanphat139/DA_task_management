@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System - Thêm mới công việc</title>
+</head>
+<body>
+    <h1>Thêm mới công việc</h1>
+    <form action="{{ url_for('add_task') }}" method="POST">
+        <label for="title">Tiêu đề:</label><br>
+        <input type="text" id="title" name="title" required><br>
+        <label for="description">Mô tả:</label><br>
+        <textarea id="description" name="description" required></textarea><br>
+        <label for="status">Trạng thái:</label><br>
+        <select id="status" name="status" required>
+            <option value="TODO">TODO</option>
+            <option value="IN PROGRESS">IN PROGRESS</option>
+            <option value="FINISHED">FINISHED</option>
+        </select><br>
+        <button type="submit">Thêm công việc</button>
+    </form>
+</body>
+</html>
